@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,6 +22,26 @@ public class Main {
         groupingBy();
         percent();
         file();
+        statistics();
+    }
+
+    /**
+     * 统计功能
+     */
+    private static void statistics() {
+        IntSummaryStatistics statistic =
+                Arrays.asList(new Task(Status.OPEN, 1), new Task(Status.CLOSED, 2)).stream()
+                        .collect(Collectors.summarizingInt((Task t) -> t.getPoints()));
+        double average = statistic.getAverage();
+        double max = statistic.getMax();
+        double min = statistic.getMin();
+        double sum = statistic.getSum();
+        double count = statistic.getCount();
+        System.out.println(average);
+        System.out.println(max);
+        System.out.println(min);
+        System.out.println(sum);
+        System.out.println(count);
     }
 
     /**
