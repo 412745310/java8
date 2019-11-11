@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.chelsea.java8.stream.domain.Status;
+import com.chelsea.java8.stream.domain.Task;
+
 public class Main {
 
     private final static Collection<Task> tasks = Arrays.asList(new Task(Status.OPEN, 5), new Task(Status.OPEN, 13),
