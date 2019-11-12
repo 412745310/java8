@@ -3,13 +3,12 @@ package com.chelsea.java8.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.stream.Stream;
 
 import org.junit.Test;
 
 import com.chelsea.java8.stream.domain.Employee;
-import com.chelsea.java8.stream.domain.Employee.Status;;
+import com.chelsea.java8.stream.domain.Employee.Status;
 
 /*
  * 一、 Stream 的操作步骤
