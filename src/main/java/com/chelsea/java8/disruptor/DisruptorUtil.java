@@ -26,8 +26,10 @@ public class DisruptorUtil {
     private DisruptorUtil() {
         EventThreadFactory eventThreadFactory = new EventThreadFactory();
         EventFactory<MessageEvent> eventFactory = new MessageEventFactory();
+        // 在并发系统中提高性能最好的方式之一就是单一写者原则，对Disruptor也是适用的。
+        // 如果在你的代码中仅仅有一个事件生产者，那么可以设置为单一生产者模式来提高系统的性能
         disruptor =
-                new Disruptor<>(eventFactory, RING_BUFFER_SIZE, eventThreadFactory, ProducerType.MULTI,
+                new Disruptor<>(eventFactory, RING_BUFFER_SIZE, eventThreadFactory, ProducerType.SINGLE,
                         new YieldingWaitStrategy());
         // 广播消费（一个消息可以被所有消费者消费）
         // disruptor.handleEventsWith(new MessageEventConsumer(), new MessageEventConsumer(), new MessageEventConsumer());
