@@ -75,6 +75,7 @@ public class DisruptorUtil {
     public void produce(String message) {
         // 发布事件；
         ringBuffer.publishEvent(new MessageEventTranslator(message));
+        System.out.println("事件发布成功");
     }
 
 }

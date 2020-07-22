@@ -19,6 +19,8 @@ public class MessageEventConsumer implements EventHandler<MessageEvent>, WorkHan
     @Override
     public void onEvent(MessageEvent event) throws Exception {
         System.out.println("消费者消费消息：" + event.getMessage());
+        Thread.sleep(3000);
+        System.out.println("消费者消费成功");
     }
 
 }
